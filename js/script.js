@@ -39,5 +39,4 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-let playerChoice = prompt("Enter your answer");
-playRound(playerChoice,getComputerChoice());
+
