@@ -10,33 +10,37 @@ function getComputerChoice () {
 }
 
 function playRound(playerChoice, computerChoice) {
+    let score;
     if (playerChoice === computerChoice) {
-        console.log("It's a draw!");
+        return score ="It's a draw!";
     }
     else if (playerChoice === "rock") {
         if (computerChoice === "paper") {
-            console.log("You lost! Paper beats rock");
+            return score ="You lost! Paper beats rock";
         }
         else {
-            console.log("You win! Rock beats scissors");
+            return score ="You win! Rock beats scissors";
         }
     }
     else if (playerChoice === "paper") {
         if (computerChoice === "rock") {
-            console.log("You win! Paper beats rock!");
+            return score ="You win! Paper beats rock!";
         }
         else {
-            console.log("You lost! Scissors beat paper!");
+            return score ="You lost! Scissors beat paper!";
         }
     }
     else {
         if (computerChoice === "rock") {
-            console.log("You lost! Rock beats scissors");
+            return score ="You lost! Rock beats scissors";
         }
         else {
-            console.log("You win! Scissors beat paper");
+            return score ="You win! Scissors beat paper";
         }
     }
 }
+
+const playerChoice = prompt("Choose your answer");
+console.log(playRound(playerChoice,getComputerChoice()));
 
 
