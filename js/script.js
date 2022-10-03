@@ -9,4 +9,35 @@ function getComputerChoice () {
     return computerChoice
 }
 
-console.log(getComputerChoice());
+function playRound(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        console.log("It's a draw!");
+    }
+    else if (playerChoice === "rock") {
+        if (computerChoice === "paper") {
+            console.log("You lost! Paper beats rock");
+        }
+        else {
+            console.log("You win! Rock beats scissors");
+        }
+    }
+    else if (playerChoice === "paper") {
+        if (computerChoice === "rock") {
+            console.log("You win! Paper beats rock!");
+        }
+        else {
+            console.log("You lost! Scissors beat paper!");
+        }
+    }
+    else {
+        if (computerChoice === "rock") {
+            console.log("You lost! Rock beats scissors");
+        }
+        else {
+            console.log("You win! Scissors beat paper");
+        }
+    }
+}
+
+let playerChoice = prompt("Enter your answer");
+playRound(playerChoice,getComputerChoice());
