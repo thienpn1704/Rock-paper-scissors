@@ -1,63 +1,37 @@
-const computerSelections = [{selection: "rock", value: 0}, {selection: "paper", value: 1}, {selection: "scissors", value: 2}];
+///////// Phu Nguyen's first every Javascript program /////////
+
+const selections = [{selection: "Rock", value: 0}, {selection: "Paper", value: 1}, {selection: "Scissors", value: 2}];
 let computerScore = 0;
 let playerScore = 0;
 
 function getComputerChoice () {
-    let computerSelection = computerSelections[Math.floor(Math.random()*computerSelections.length)];
+    let computerSelection = selections[Math.floor(Math.random()*selections.length)];
     return computerSelection;
 }
 
-console.log(getComputerChoice());
-
-/* function randomNumber () {
-    let rand = Math.floor(Math.random()*3);
-    return rand;
-}
-
-function getComputerChoice () {
-    const choices = ["rock", "paper", "scissors"];
-    let computerChoice = choices[randomNumber()];
-    return computerChoice
-}
-
-function playRound(playerChoice, computerChoice) {
-    let score;
-    if (playerChoice === computerChoice) {
-        return score ="It's a draw!";
+function playRound(playerSelection, computerSelection) {
+    const winKey = ["1-0","2-1","0-2"];
+    let roundKey = `${playerSelection.value}-${computerSelection.value}`;
+    if (playerSelection.value === computerSelection.value) {
+        return "It's a tie game";
     }
-    else if (playerChoice === "rock") {
-        if (computerChoice === "paper") {
-            return score ="You lost! Paper beats rock";
-        }
-        else {
-            return score ="You win! Rock beats scissors";
-        }
-    }
-    else if (playerChoice === "paper") {
-        if (computerChoice === "rock") {
-            return score ="You win! Paper beats rock!";
-        }
-        else {
-            return score ="You lost! Scissors beat paper!";
-        }
+    else if (winKey.includes(roundKey)) {
+        playerScore++;
+        return `You win! ${playerSelection.selection} beats ${computerSelection.selection}!`;
     }
     else {
-        if (computerChoice === "rock") {
-            return score ="You lost! Rock beats scissors";
-        }
-        else {
-            return score ="You win! Scissors beat paper";
-        }
+        computerScore++;
+        return `You lost! ${computerSelection.selection} beats ${playerSelection.selection}`;
     }
 }
 
 function game() {
+
     for (let i = 0; i < 5; i++) {
-        let playerChoice = prompt("Choose your weapon");
-        playRound(playerChoice,getComputerChoice());
+        let userInput = parseInt(prompt("Please choose number 0, 1, or 2"));
+        console.log(playRound(selections[userInput],getComputerChoice()));
     }
 }
 
 game();
 
-*/
