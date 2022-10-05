@@ -1,4 +1,15 @@
-function randomNumber () {
+const computerSelections = [{selection: "rock", value: 0}, {selection: "paper", value: 1}, {selection: "scissors", value: 2}];
+let computerScore = 0;
+let playerScore = 0;
+
+function getComputerChoice () {
+    let computerSelection = computerSelections[Math.floor(Math.random()*computerSelections.length)];
+    return computerSelection;
+}
+
+console.log(getComputerChoice());
+
+/* function randomNumber () {
     let rand = Math.floor(Math.random()*3);
     return rand;
 }
@@ -40,7 +51,13 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-const playerChoice = prompt("Choose your answer");
-console.log(playRound(playerChoice,getComputerChoice()));
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerChoice = prompt("Choose your weapon");
+        playRound(playerChoice,getComputerChoice());
+    }
+}
 
+game();
 
+*/
